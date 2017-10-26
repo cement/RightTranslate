@@ -1,6 +1,12 @@
+const mainMenuId = chrome.contextMenus.create({
+    title: 'YSH右键翻译:%s',
+    contexts: ['selection']
+
+})
 chrome.contextMenus.create({
-    title: '英译汉：%s', // %s表示选中的文字
+    title: '英->汉', // %s表示选中的文字
     contexts: ['selection'], // 只有当选中文字时才会出现此右键菜单
+    parentId:mainMenuId,
     onclick: function(onClickData, tab) {
         let tranText = onClickData.selectionText;
         let tabId = tab.id;
@@ -15,8 +21,9 @@ chrome.contextMenus.create({
     }
 });
 chrome.contextMenus.create({
-    title: '汉泽英：%s', // %s表示选中的文字
+    title: '汉->英', // %s表示选中的文字
     contexts: ['selection'], // 只有当选中文字时才会出现此右键菜单
+    parentId:mainMenuId,
     onclick: function(onClickData, tab) {
         let tranText = onClickData.selectionText;
         let tabId = tab.id;
@@ -50,14 +57,14 @@ function sendHttpRequest(transText,fromLang,toLang,callback) {
     xhr.open("GET", encodeUrl, true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
-            //if(xhr.status===200){
+            if(xhr.status=200){
                 // JSON解析器不会执行攻击者设计的脚本.
                 var resp = JSON.parse(xhr.responseText);
                 callback(resp);
-            // }else(){
-            //     var error = xhr.status+':'+xhr.statusText;
-            //     callback(error);
-            // }
+            }else{
+                var error = xhr.status+' '+xhr.statusText;
+                callback(error);
+            }
         }
     }
     xhr.send();
