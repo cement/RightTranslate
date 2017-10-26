@@ -1,0 +1,35 @@
+﻿{
+    "manifest_version": 2,
+    "name": "右键翻译",
+    "version": "1.0.0",
+    "description": "右键翻译插件",
+    "icons":
+    {
+        "16": "img/icon.png",
+        "48": "img/icon.png",
+        "128": "img/icon.png"
+    },
+    "browser_action": 
+	{
+		"default_icon": "img/icon.png",
+		"default_title": "右键翻译",
+		"default_popup": "popup.html"
+	},
+    "background":
+    {
+        "page": "background.html"
+    },
+    "content_scripts": [
+    {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["js/contentscript.js"],
+        "css": ["css/custom.css"],
+        "run_at": "document_end"
+    }],
+    "permissions": [
+        "contextMenus", // 右键菜单
+        // "webRequest",
+        "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+        "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+    ]
+}

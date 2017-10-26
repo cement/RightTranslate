@@ -1,0 +1,56 @@
+#ysh-body {
+    width: 300px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font: 12px "Microsoft YaHei", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    border-radius: 10px;
+    position: relative;
+}
+
+#translate-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #fff;
+    border: solid 1px #0a47c8;
+    background-color: #0a47c8;
+}
+
+
+
+#translate-text {
+    font-size: 1.5em;
+    width: 295px;
+    min-height: 220px;
+}
+
+#translate-placeholder {
+    position: absolute;
+    top: 60px;
+    left: 6px
+}
+
+#translate-submit {
+    position: absolute;
+    color: #fff;
+    right: 10px;
+    bottom: 16px;
+    width: 66px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: #0a47c8;
+}
+#translate-form{
+    
+    text-align: right;
+    font-size: 1.2em;
+    margin:4px;
+}

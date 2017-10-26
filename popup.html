@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>弹出菜单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+
+<body id="ysh-body">
+    <div id="container">
+        <h3 id='translate-title'>YSH右键翻译</h3>
+        <form id='translate-form' name='translateFrom'>
+            <input id ='trans-to-zh' type="radio" name="transto" value="zh" checked>英译汉</input>
+            <input id ='trans-to-en' type="radio" name="transto" value="en">汉译英</input>
+        </form>
+        <textarea rows="6" id="translate-text" placeholder="输入或粘贴原文" autofocus='autofocus' required="">
+        </textarea>
+        <button id="translate-submit">翻译</button>
+        <!-- <span id="translate-placeholder">输入或粘贴原文</span> -->
+        <div id="result"></div>
+    </div>
+    <script src="js/popup.js"></script>
+</body>
+
+</html>
