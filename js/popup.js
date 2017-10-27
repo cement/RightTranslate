@@ -17,8 +17,11 @@ submit.onclick = function(event) {
         textarea.value = '请输入原文';
         return;
     }
-    background.sendHttpRequest(tranText, transFrom,transTo,function(resp) {
+    let result = localStorage.getItem(tranText+'['+transFrom+'-'+transTo+']');
+    
+    background.translate(tranText, transFrom,transTo,function(resp) {
         textarea.value = '';
-        textarea.value = `译文：\n${resp.trans_result[0].dst}`;
+        textarea.value = `译文：\n${resp.dst}`;
     });
+        
 }
