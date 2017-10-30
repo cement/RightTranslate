@@ -1,7 +1,7 @@
 ﻿{
     "manifest_version": 2,
     "name": "YSH右键翻译",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "右键翻译插件",
     "icons":
     {

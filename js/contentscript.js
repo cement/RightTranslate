@@ -29,7 +29,7 @@ function displayTransResult(result) {
         })
 
 
-        document.body.append(eleFragment);
+        document.body.appendChild(eleFragment);
     } else {
         eleFragment.innerHTML =
             `<i>原文：${result.src}</i> <hr/>
