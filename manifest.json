@@ -5,13 +5,16 @@
     "description": "右键翻译插件",
     "icons":
     {
-        "16": "img/icon.png",
-        "48": "img/icon.png",
-        "128": "img/icon.png"
+        "16": "img/icon_16.png",
+        "48": "img/icon_48.png",
+        "128": "img/icon_128.png"
     },
     "browser_action": 
 	{
-		"default_icon": "img/icon.png",
+	  "default_icon": {
+         "19": "img/icon_19.png",
+         "38": "img/icon_38.png"
+      },
 		"default_title": "右键翻译",
 		"default_popup": "popup.html"
 	},

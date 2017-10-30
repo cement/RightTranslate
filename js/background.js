@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-const mainMenuId = chrome.contextMenus.create({
-    title: 'YSH右键翻译:%s',
-    contexts: ['selection']
-
-=======
 let mainMenuId = chrome.contextMenus.create({
     title: 'YSH右键翻译：%s', // %s表示选中的文字
     contexts: ['selection']
->>>>>>> dev
 })
 chrome.contextMenus.create({
     title: '英->汉', // %s表示选中的文字
@@ -66,15 +59,10 @@ function sendHttpRequest(transText,from,to,callback) {
                 // JSON解析器不会执行攻击者设计的脚本.
                 let resp = JSON.parse(xhr.responseText).trans_result[0];
                 callback(resp);
-<<<<<<< HEAD
-            }else{
-                var error = xhr.status+' '+xhr.statusText;
-=======
                 let key = query+'['+from+'-'+to+']';
                 localStorage.setItem(key,JSON.stringify(resp));
              }else{
                 let error = xhr.status+':'+xhr.statusText;
->>>>>>> dev
                 callback(error);
             }
         }

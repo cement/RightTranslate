@@ -1,34 +1,38 @@
 // 接收来自后台的消息
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    displayTransResult(request);
+    //alert(request)
+    if (request) {
+        displayTransResult(request);
+    }
 });
 
 let eleFragment = null;
+
 function displayTransResult(result) {
-    
-   if(!result) return;
-   if(!eleFragment){
+
+
+    if (!eleFragment) {
         eleFragment = document.createElement('trans-result');
-        eleFragment.className='translate-result-display';
+        eleFragment.className = 'translate-result-display';
         eleFragment.classList.add('animate-top');
-        eleFragment.innerHTML = 
-           `<i>原文：${result.src}</i><hr/> <b>译文：${result.dst}</b>`;
-        eleFragment.addEventListener('click',function(){
-            if(eleFragment.getBoundingClientRect().top<0){
+        eleFragment.innerHTML =
+            `<i>原文：${result.src}</i><hr/> <b>译文：${result.dst}</b>`;
+        eleFragment.addEventListener('click', function() {
+            if (eleFragment.getBoundingClientRect().top < 0) {
                 eleFragment.classList.remove('animate-top')
                 eleFragment.offsetWidth = eleFragment.offsetWidth;
                 eleFragment.classList.add('animate-top');
-            }else{
+            } else {
                 eleFragment.remove();
-                eleFragment=null;
+                eleFragment = null;
             }
         })
-    
-       
+
+
         document.body.append(eleFragment);
-    }else{
-        eleFragment.innerHTML = 
-           `<i>原文：${result.src}</i> <hr/>
+    } else {
+        eleFragment.innerHTML =
+            `<i>原文：${result.src}</i> <hr/>
             <b>译文：${result.dst}</b>`;
         eleFragment.classList.remove('animate-top')
         eleFragment.offsetWidth = eleFragment.offsetWidth;
@@ -37,6 +41,7 @@ function displayTransResult(result) {
 
 }
 
+//
 // 简单的消息通知
 // function tip(info) {
 //     info = info || '';
